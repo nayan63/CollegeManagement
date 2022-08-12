@@ -1,0 +1,33 @@
+package com.mindtree.college.implementation;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.mindtree.college.entity.College;
+import com.mindtree.college.repository.CollegeRepository;
+import com.mindtree.college.service.CollegeService;
+
+@Component
+public class CollegeImplementation implements CollegeService {
+
+	@Autowired
+	CollegeRepository collegeRepo;
+	
+	@Override
+	public College add(College college) {
+		return collegeRepo.save(college);
+	}
+
+	@Override
+	public List<College> list() {
+		return collegeRepo.findAll();
+	}
+
+	@Override
+	public int totalStudent(long id) {
+		return 0;
+	}
+
+}

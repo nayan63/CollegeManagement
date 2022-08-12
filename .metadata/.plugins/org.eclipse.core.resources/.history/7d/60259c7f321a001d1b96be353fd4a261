@@ -1,0 +1,58 @@
+package com.mindtree.college.implementation;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.mindtree.college.VO.ResponseTemplate;
+import com.mindtree.college.VO.Student;
+import com.mindtree.college.entity.College;
+import com.mindtree.college.repository.CollegeRepository;
+import com.mindtree.college.service.CollegeService;
+
+@Component
+public class CollegeImplementation implements CollegeService {
+
+	@Autowired
+	CollegeRepository collegeRepo;
+	@Autowired
+	RestTemplate restTemplate;
+	
+	@Override
+	public College add(College college) {
+		return collegeRepo.save(college);
+	}
+
+	@Override
+	public List<College> list() {
+		return collegeRepo.findAll();
+	}
+
+	@Override
+	public int totalStudent(long id) {
+		return collegeRepo.getTotalStudent(id);
+	}
+
+	@Override
+	public List<ResponseTemplate> listOfStudent() {
+		List<ResponseTemplate> RTList = new ArrayList<ResponseTemplate>();
+		List<College> colList = collegeRepo.findAll();
+		Iterator<College> ir = colList.iterator();
+		while(ir.hasNext())
+		{
+			College college = ir.next();
+			List<Student> stuList = restTemplate.getForObject("http://STUDENT-SERVICE/student-by-name/"+college.getId(), List.class);
+			ResponseTemplate RT = new ResponseTemplate();
+			RT.setCollege(college);
+			RT.setStudentList(stuList);
+			RTList.add(RT);
+		}
+		
+		return null;
+	}
+
+}

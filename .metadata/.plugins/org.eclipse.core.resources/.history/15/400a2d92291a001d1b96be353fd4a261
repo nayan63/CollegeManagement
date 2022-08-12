@@ -1,0 +1,14 @@
+package com.mindtree.student.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Student {
+
+	private long id;
+	private String name;
+	private int age;
+	private String gender;
+	private String stream;
+	private long collegeId;
+}

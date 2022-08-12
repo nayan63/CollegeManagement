@@ -1,0 +1,5 @@
+package com.mindtree.college.VO;
+
+public class Student {
+
+}

@@ -1,0 +1,5 @@
+package com.mindtree.student.service;
+
+public class StudentService {
+
+}

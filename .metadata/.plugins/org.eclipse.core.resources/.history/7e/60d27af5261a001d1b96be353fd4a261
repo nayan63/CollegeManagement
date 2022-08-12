@@ -1,0 +1,22 @@
+package com.mindtree.college.implementation;
+
+import java.util.List;
+
+import com.mindtree.college.entity.College;
+import com.mindtree.college.service.CollegeService;
+
+public class CollegeImplementation implements CollegeService {
+
+	@Override
+	public College add(College college) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<College> list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.mindtree.college.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CollegeRepository extends JpaRepository<T, ID> {
+
+}

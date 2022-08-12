@@ -1,0 +1,11 @@
+package com.mindtree.student.service;
+
+import org.springframework.stereotype.Service;
+
+import com.mindtree.student.entity.Student;
+
+@Service
+public interface StudentService {
+
+	Student add(Student student);
+}

@@ -1,0 +1,5 @@
+package com.mindtree.student.controller;
+
+public class StudentController {
+
+}

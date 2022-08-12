@@ -1,0 +1,11 @@
+package com.mindtree.college.VO;
+
+import java.util.List;
+
+import com.mindtree.college.entity.College;
+
+public class ResponseTemplate {
+
+	private College college;
+	private List<Student> studentList;
+}

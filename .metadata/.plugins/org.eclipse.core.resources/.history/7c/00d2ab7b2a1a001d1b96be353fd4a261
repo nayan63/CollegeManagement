@@ -1,0 +1,40 @@
+package com.mindtree.student.implementation;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.mindtree.student.entity.Student;
+import com.mindtree.student.repository.StudentRepository;
+import com.mindtree.student.service.StudentService;
+
+@Component
+public class StudentImplement implements StudentService {
+
+	@Autowired
+	StudentRepository stuRepo;
+	@Override
+	public Student add(Student student) {
+		return null;
+	}
+
+	@Override
+	public List<Student> list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Student collegeAssign(long stuId, long colId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Student> byCollege(long collId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

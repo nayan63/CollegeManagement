@@ -1,0 +1,22 @@
+package com.mindtree.student.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.mindtree.student.entity.Student;
+
+@Repository
+public interface StudentRepository extends JpaRepository<Student, Long> {
+
+	@Query(value="SELECT COUNT(id) AS total FROM student WHERE college_id=?1",nativeQuery = true)
+	int totalStudentInCollege(long collId);
+	
+	@Query(value="SELECT * FROM student WHERE college_id=?1 ORDER BY age",nativeQuery = true)
+	List<Student> getByCollegeIdAge(long collId);
+	
+	@Query(value="SELECT * FROM student WHERE college_id=?1 ORDER BY age",nativeQuery = true)
+	List<Student> getByCollegeIdName(long collId);
+}
